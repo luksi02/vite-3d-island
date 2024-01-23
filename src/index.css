@@ -87,10 +87,6 @@ body:has(.card[data-color="green"]:hover) {
   @apply text-black-500;
 }
 
-/* .header {
-  color: #212529; /* This is equivalent to text-black-500 */
-} */
-
 .glassmorphism {
   background: rgba(8, 116, 239, 0.07);
   backdrop-filter: blur(10px);
