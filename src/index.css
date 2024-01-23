@@ -22,6 +22,10 @@ body:has(.card[data-color="green"]:hover) {
 }
 
 @layer utilities {
+  .text-black-500 {
+    color: #212529;
+  }
+  
   .max-container {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
   }
@@ -78,6 +82,14 @@ body:has(.card[data-color="green"]:hover) {
     @apply text-black-500 font-extrabold flex-1 text-3xl max-md:text-center;
   }
 }
+
+.header {
+  @apply text-black-500;
+}
+
+/* .header {
+  color: #212529; /* This is equivalent to text-black-500 */
+} */
 
 .glassmorphism {
   background: rgba(8, 116, 239, 0.07);
