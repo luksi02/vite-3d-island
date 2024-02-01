@@ -62,7 +62,15 @@ const Home = () => {
   return (
     <section className='w-full h-screen relative'>
       <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-        {currentStage && <HomeInfo currentStage={currentStage} />}
+        <>
+          {currentStage == 1 || currentStage == 2 || currentStage == 3 || currentStage == 4 ? (<HomeInfo currentStage={currentStage} />) :
+
+            (<h1 className='sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5'>
+              Spin the space carrier to find out hidden
+              <br />
+              messages! Feel free to check it out!
+            </h1>)}
+        </>
       </div>
 
       <Canvas
@@ -85,9 +93,9 @@ const Home = () => {
             groundColor='#000000'
             intensity={1}
           />
-          
+
           <Drone />
-          
+
           <Sky isRotating={isRotating} />
           <Carrier
             isRotating={isRotating}
@@ -102,7 +110,7 @@ const Home = () => {
             position={biplanePosition}
             rotation={[0, 20.1, 0]}
             scale={biplaneScale}
-          /> 
+          />
 
           <Yellow_drone
             isRotating={isRotating}
