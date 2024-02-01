@@ -4,7 +4,7 @@ import { Suspense, useRef, useState } from "react";
 import * as THREE from 'three';
 
 // import { Fox } from "../models";
-import { Toad } from "../models";
+
 import { Yellow_drone } from "../models";
 import useAlert from "../hooks/useAlert";
 import { Alert, Loader } from "../components";
