@@ -4,8 +4,9 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import sakura from "../assets/sakura.mp3";
 import { HomeInfo, Loader } from "../components";
 import { soundoff, soundon } from "../assets/icons";
-import { Bird, Island, Plane, Sky } from "../models";
-// import { renderBird2 } from "../models/renderBird2";
+import { Carrier, Sky, Drone, Mech_drone } from "../models";
+import { Yellow_drone } from "../models";
+
 
 const Home = () => {
   const audioRef = useRef(new Audio(sakura));
@@ -41,7 +42,7 @@ const Home = () => {
     return [screenScale, screenPosition];
   };
 
-  const adjustIslandForScreenSize = () => {
+  const adjustcarrierForScreenSize = () => {
     let screenScale, screenPosition;
 
     if (window.innerWidth < 768) {
@@ -56,7 +57,7 @@ const Home = () => {
   };
 
   const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
-  const [islandScale, islandPosition] = adjustIslandForScreenSize();
+  const [carrierScale, carrierPosition] = adjustcarrierForScreenSize();
 
   return (
     <section className='w-full h-screen relative'>
@@ -84,24 +85,32 @@ const Home = () => {
             groundColor='#000000'
             intensity={1}
           />
-
-          <Bird />
-          {/* <renderBird2 /> */}
+          
+          <Drone />
+          
           <Sky isRotating={isRotating} />
-          <Island
+          <Carrier
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
-            position={islandPosition}
+            position={carrierPosition}
             rotation={[0.1, 4.7077, 0]}
-            scale={islandScale}
+            scale={carrierScale}
           />
-          <Plane
+          <Mech_drone
             isRotating={isRotating}
             position={biplanePosition}
             rotation={[0, 20.1, 0]}
             scale={biplaneScale}
+          /> 
+
+          <Yellow_drone
+            isRotating={isRotating}
+            position={[0, 0, -300]}
+            rotation={[0, 0, 0]}
+            scale={[0.5, 0.5, 0.5]}
           />
+
         </Suspense>
       </Canvas>
 
