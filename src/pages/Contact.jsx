@@ -1,8 +1,11 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
+import * as THREE from 'three';
 
-import { Fox } from "../models";
+// import { Fox } from "../models";
+import { Toad } from "../models";
+import { Yellow_drone } from "../models";
 import useAlert from "../hooks/useAlert";
 import { Alert, Loader } from "../components";
 
@@ -157,11 +160,16 @@ const Contact = () => {
           />
 
           <Suspense fallback={<Loader />}>
-            <Fox
+            {/* <Toad
               currentAnimation={currentAnimation}
-              position={[0.5, 0.35, 0]}
-              rotation={[12.629, -0.6, 0]}
-              scale={[0.5, 0.5, 0.5]}
+              position={[0, -1, 3]}
+              scale={[0.01, 0.01, 0.01]}
+            /> */}
+            <Yellow_drone
+              currentAnimation={currentAnimation}
+              position={[0, -1, 3]}
+              rotation={new THREE.Euler(1/10, 0, 0)}
+              scale={[0.009, 0.009, 0.009]}
             />
           </Suspense>
         </Canvas>
