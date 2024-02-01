@@ -2,22 +2,22 @@ import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useAnimations, useGLTF } from "@react-three/drei";
 
-import birdScene2 from "../assets/3d/bird.glb";
+import birdScene from "../assets/3d/aeon_dart_iv.glb";
 
 // Function for the second bird
 export function renderBird2() {
     const birdRef2 = useRef();
 
     // Load the 3D model and animations for the bird
-    const { scene2, animations2 } = useGLTF(birdScene2);
+    const { scene2, animations2 } = useGLTF(birdScene);
 
     // Get access to the animations for the bird
-    const { actions2 } = useAnimations(animations2, birdRef2);
+    const { actions } = useAnimations(animations2, birdRef2);
 
     // Play the "Take 001" animation when the component mounts
-    useEffect(() => {
-        actions2["Take 001"].play();
-    }, []);
+    // useEffect(() => {
+    //     actions["Take 001"].play();
+    // }, []);
 
     useFrame(({ clock, camera }) => {
         // Update the Y position to simulate bird-like motion using a sine wave
@@ -46,10 +46,40 @@ export function renderBird2() {
 
     return (
         // to create and display 3D objects
-        <mesh ref={birdRef2} position={[2, 2, 7]} scale={[0.003, 0.003, 0.003]}>
-      // use the primitive element when you want to directly embed a complex 3D
-            // model or scene
-            <primitive object={scene2} />
-        </mesh>
+        <group {...props} dispose={null}>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_4.geometry}
+        material={materials.Space_Jet_Atlas}
+        position={[2.351, 1.59, 0.005]}
+        rotation={[1.656, 1.473, -1.646]}
+        scale={0.585}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_6.geometry}
+        material={materials.Material}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_7.geometry}
+        material={materials.Inner_Grille}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_9.geometry}
+        material={materials.Canopy}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_11.geometry}
+        material={materials.Boosters}
+      />
+    </group>
     );
 }
